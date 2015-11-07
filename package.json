@@ -1,0 +1,36 @@
+{
+  "name": "number-unit",
+  "version": "0.0.0",
+  "description": "Numbers with units.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "standard && tape tests/**/*.test.js | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jprichardson/number-unit.git"
+  },
+  "keywords": [
+    "number",
+    "unit",
+    "decimal",
+    "big",
+    "arbitrary"
+  ],
+  "author": "JP Richardson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jprichardson/number-unit/issues"
+  },
+  "homepage": "https://github.com/jprichardson/number-unit#readme",
+  "devDependencies": {
+    "babel": "5.x",
+    "babel-eslint": "4.x",
+    "standard": "5.x",
+    "tap-spec": "^4.1.0",
+    "tape": "^4.2.2"
+  },
+  "dependencies": {
+    "decimal.js": "^4.0.3"
+  }
+}
