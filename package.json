@@ -4,7 +4,8 @@
   "description": "Numbers with units.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "standard && tape tests/**/*.test.js | tap-spec"
+    "build": "babel --stage 0 src --out-dir lib",
+    "test": "standard && find ./tests -name *.test.js -exec node --require ./tests/_babel.js {} \\; | tap-spec"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,13 @@
     "tape": "^4.2.2"
   },
   "dependencies": {
+    "clone": "^1.0.2",
     "decimal.js": "^4.0.3"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "ignore": [
+      "lib/"
+    ]
   }
 }
