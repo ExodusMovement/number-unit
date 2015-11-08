@@ -13,6 +13,14 @@ test('to() other units', function (t) {
   t.end()
 })
 
+test('to() when undefined or null passed', function (t) {
+  let b1 = bitcoin.BTC(1.53)
+
+  t.throws(() => b1.to(null))
+
+  t.end()
+})
+
 test('toString() with unit parameter', function (t) {
   let b1 = bitcoin.BTC(1.53)
 

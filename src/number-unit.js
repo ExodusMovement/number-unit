@@ -1,4 +1,4 @@
-import assert from 'assert'
+import { ok, strictEqual } from 'assert'
 import Decimal from 'decimal.js'
 import _isNumberUnit from './is-number-unit'
 // import Unit from './unit'
@@ -85,15 +85,23 @@ export default class NumberUnit {
     if (typeof unit === 'string') {
       unit = this.unitType.units[unit]
     }
+    ok(typeof unit === 'string' || typeof unit === 'function', 'Unit must be either a string or a function from UnitType.')
 
-    assert.strictEqual(this.rootUnitType, unit.rootUnitType, `Incompatible root unit types: ${this.rootUnitType.label} and ${unit.rootUnitType.label}`)
+    strictEqual(this.rootUnitType, unit.rootUnitType, `Incompatible root unit types: ${this.rootUnitType.label} and ${unit.rootUnitType.label}`)
 
     if (this.unit.unitType !== unit.unitType) {
       if (!conversionUnit) throw new Error('Incompatible unit types. Must specify a conversion.')
-      if (this.unitType !== conversionUnit.from.unitType) throw new Error('Conversion unit from is of different type.')
-      let normalizeNum = this.to(this.unitType[conversionUnit.fromUnit])
-      let newNumber = normalizeNum._number.times(conversionUnit.toValue).div(conversionUnit.fromValue)
-      return new NumberUnit(newNumber, conversionUnit.to.unitType[conversionUnit.toUnit])
+
+      // deprecated
+      if (typeof conversionUnit !== 'function') {
+        if (this.unitType !== conversionUnit.from.unitType) throw new Error('Conversion unit from is of different type.')
+        let normalizeNum = this.to(this.unitType[conversionUnit.fromUnit])
+        let newNumber = normalizeNum._number.times(conversionUnit.toValue).div(conversionUnit.fromValue)
+        return new NumberUnit(newNumber, conversionUnit.to.unitType[conversionUnit.toUnit])
+      } else {
+        // new way
+        return conversionUnit(this)
+      }
     } else { // same unitType e.g. BTC to satoshis
       var base = this.toBase()
       let newNumber = base._number.div(unit.multiplier)

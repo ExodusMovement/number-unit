@@ -1,8 +1,14 @@
 import clone from 'clone'
 
+// DEPRECATED
+
 export default class ConversionUnit {
-  static create ({ from, to }) {
-    return new ConversionUnit({ from, to })
+  static create (args) {
+    if (args.from && args.to) {
+      return new ConversionUnit(args)
+    } else {
+
+    }
   }
 
  constructor ({ from, to }) {
