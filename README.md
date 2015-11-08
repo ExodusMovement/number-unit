@@ -1,7 +1,9 @@
 Number (with) Unit
 ==================
 
-A JavaScript component to manage arbitrary precision numbers with units.
+[![build status](https://api.travis-ci.org/jprichardson/number-unit.svg)](http://travis-ci.org/jprichardson/number-unit)
+
+A JavaScript component to handle arbitrary precision numbers with units.
 
 
 Why?
