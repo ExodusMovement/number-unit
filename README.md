@@ -41,8 +41,8 @@ Install
     npm i --save number-unit
 
 
-API
----
+Usage
+-----
 
 **Quick example:**
 
@@ -62,3 +62,31 @@ console.log(amount2.toString()) // => 1530000 bits
 // compare numerical values
 console.log(amount1.equals(amount2)) // => true
 ```
+
+
+### Important Concepts to Know
+
+1. You must use `UnitType.create()` to create a `UnitType()` to start working with
+NumberUnits.
+
+2. UnitTypes can be a type of other UnitTypes. For example, you may create
+a `UnitType` named `distance`, and then want to create another named `distanceSI`
+representing your desire to model [SI / Metric Units](https://en.wikipedia.org/wiki/International_System_of_Units).
+Now you may want to create another named `distanceUS`, modeling
+[United States customary units](https://en.wikipedia.org/wiki/United_States_customary_units). Since both
+have `distance` has a parent type, you can convert between the two. This is the value
+of parent types. As it wouldn't make sense to convert from distance to currency or something
+lie that. See: (LINK TO FIXURES)
+
+
+
+### NumberUnit
+
+
+### Unit
+
+
+### UnitType
+
+
+### ConversionUnit
