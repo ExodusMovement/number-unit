@@ -30,6 +30,10 @@ export default class NumberUnit {
     // this._baseNumber = this._number.times(unit.multiplier)
   }
 
+  abs () {
+    return new NumberUnit(this._number.abs(), this.unit)
+  }
+
   add (number) {
     number = this._coerceToNumberUnit(number)
     let base = number.toBase()
