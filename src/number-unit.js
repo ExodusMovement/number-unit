@@ -1,5 +1,6 @@
 import assert from 'assert'
 import Decimal from 'decimal.js'
+import _isNumberUnit from './is-number-unit'
 // import Unit from './unit'
 
 export default class NumberUnit {
@@ -8,16 +9,7 @@ export default class NumberUnit {
   }
 
   // so you don't have to do instanceof and get bit by different included versions
-  static isNumberUnit (obj) {
-    if (typeof obj !== 'object') return false
-
-    // duck type check
-    return '_number' in obj &&
-      'unit' in obj &&
-      'unitType' in obj &&
-      'baseUnit' in obj &&
-      'rootUnitType' in obj
-  }
+  static isNumberUnit = _isNumberUnit
 
   static strict = false
 
