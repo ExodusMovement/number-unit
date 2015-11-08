@@ -1,11 +1,11 @@
 {
   "name": "number-unit",
-  "version": "0.0.0",
+  "version": "0.5.0",
   "description": "Numbers with units.",
   "main": "lib/index.js",
   "scripts": {
     "build": "babel --stage 0 src --out-dir lib",
-    "test": "standard && find ./tests -name *.test.js -exec node --require ./tests/_babel.js {} \\; | tap-spec"
+    "test": "standard && npm run build && find ./tests -name *.test.js -exec node --require ./tests/_babel.js {} \\; | tap-spec"
   },
   "repository": {
     "type": "git",
