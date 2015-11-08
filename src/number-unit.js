@@ -31,7 +31,7 @@ export default class NumberUnit {
   }
 
   abs () {
-    return new NumberUnit(this._number.abs(), this.unit)
+    return new NumberUnit(this._number.abs(), this.unit, { strict: this.strict })
   }
 
   add (number) {
@@ -52,6 +52,10 @@ export default class NumberUnit {
     let base = number.toBase()
     let thisBase = this.toBase()
     return thisBase._number.gt(base._number)
+  }
+
+  negate () {
+    return new NumberUnit(this._number.neg(), this.unit, { strict: this.strict })
   }
 
   subtract (number) {
