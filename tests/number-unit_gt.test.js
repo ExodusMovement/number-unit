@@ -1,5 +1,5 @@
 import test from 'tape'
-import { bitcoin } from './fixtures'
+import { bitcoin } from './_fixtures'
 
 test('greater than with positive numbers', function (t) {
   const b1 = bitcoin.BTC(1.53)

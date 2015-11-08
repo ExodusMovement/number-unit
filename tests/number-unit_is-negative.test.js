@@ -1,5 +1,5 @@
 import test from 'tape'
-import { bitcoin } from './fixtures'
+import { bitcoin } from './_fixtures'
 
 test('isNegative() should return true if negative amount', function (t) {
   let b1 = bitcoin.BTC(1)

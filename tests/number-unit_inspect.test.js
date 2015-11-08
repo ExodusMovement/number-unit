@@ -1,6 +1,6 @@
 import test from 'tape'
 import { inspect } from 'util'
-import { bitcoin } from './fixtures'
+import { bitcoin } from './_fixtures'
 
 test('inspect()', function (t) {
   let b1 = bitcoin.BTC(1.53)

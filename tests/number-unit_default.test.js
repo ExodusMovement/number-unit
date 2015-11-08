@@ -1,5 +1,5 @@
 import test from 'tape'
-import { bitcoin, dollar, distanceSI } from './fixtures'
+import { bitcoin, dollar, distanceSI } from './_fixtures'
 
 test('toDefault() should convert to default unit', function (t) {
   const b1 = bitcoin.BTC(1.53)

@@ -1,5 +1,5 @@
 import test from 'tape'
-import { bitcoin, distanceSI } from './fixtures'
+import { bitcoin, distanceSI } from './_fixtures'
 
 test('parse() should return a NumberUnit from the string representation', function (t) {
   const d1 = distanceSI.parse('3.5 km')

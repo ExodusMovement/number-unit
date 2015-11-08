@@ -1,6 +1,6 @@
 import test from 'tape'
 import NumberUnit from '../'
-import { bitcoin } from './fixtures'
+import { bitcoin } from './_fixtures'
 
 test('when strict mode, must specify unit for math operations', function (t) {
   let b1 = bitcoin.BTC(1.53)

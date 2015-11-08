@@ -1,5 +1,5 @@
 import test from 'tape'
-import { bitcoin } from './fixtures'
+import { bitcoin } from './_fixtures'
 import NumberUnit from '../'
 
 test('number-unit: isNumberUnit()', function (t) {

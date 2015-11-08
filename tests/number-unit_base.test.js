@@ -1,6 +1,6 @@
 import test from 'tape'
 import NumberUnit from '../'
-import { bitcoin, distanceSI } from './fixtures'
+import { bitcoin, distanceSI } from './_fixtures'
 
 test('toBase() should convert any unit to base unit', function (t) {
   const amtBTC = bitcoin.BTC(1.53)

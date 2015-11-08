@@ -1,5 +1,5 @@
 import test from 'tape'
-import { bitcoin } from './fixtures'
+import { bitcoin } from './_fixtures'
 
 test('JSON stringify should not throw an error', function (t) {
   let b1 = bitcoin.BTC(1.53)

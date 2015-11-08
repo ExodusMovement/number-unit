@@ -1,5 +1,5 @@
 import test from 'tape'
-import { bitcoin, distanceSI } from './fixtures'
+import { bitcoin, distanceSI } from './_fixtures'
 
 test('equals() should return true if any number with unit is equivalent', function (t) {
   t.true(bitcoin.BTC('1.53').equals(bitcoin.bits(1530000)), '1.53 BTC === 1530000 bits')

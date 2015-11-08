@@ -1,5 +1,5 @@
 import test from 'tape'
-import { bitcoin, dollar } from './fixtures'
+import { bitcoin, dollar } from './_fixtures'
 
 test('ZERO should return a number-unit with value of 0 in default unit', function (t) {
   const b0 = bitcoin.ZERO

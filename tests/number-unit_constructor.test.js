@@ -1,6 +1,6 @@
 import test from 'tape'
 import NumberUnit from '../'
-import { bitcoin, distanceSI } from './fixtures'
+import { bitcoin, distanceSI } from './_fixtures'
 
 test('factory create method with number input', function (t) {
   // very verbose
