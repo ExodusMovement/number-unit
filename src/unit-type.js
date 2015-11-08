@@ -13,8 +13,6 @@ export default class UnitType {
     this.label = label
     this.path = parent ? parent.path + '/' + label : label
     this.rootUnitType = parent ? parent.rootUnitType : this
-    this.abstract = !!definitions
-    this.definitions = definitions
 
     if (definitions) {
       assert(defaultUnit, 'if unit definitions are defined, a defaultUnit must be defined')
