@@ -16,15 +16,15 @@ export default class UnitType {
 
     if (definitions) {
       assert(defaultUnit, 'if unit definitions are defined, a defaultUnit must be defined')
-      this._applyDefinitions(defaultUnit)
+      this._applyDefinitions(definitions, defaultUnit)
     }
   }
 
-  _applyDefinitions (defaultUnit) {
+  _applyDefinitions (definitions, defaultUnit) {
     this.units = {}
 
-    Object.keys(this.definitions).forEach((key) => {
-      this.units[key] = Unit.create(this, key, this.definitions[key])
+    Object.keys(definitions).forEach((key) => {
+      this.units[key] = Unit.create(this, key, definitions[key])
       // merge units with `this`
       this[key] = this.units[key]
       /* let keyRenamed = key
