@@ -1,6 +1,10 @@
 import clone from 'clone'
 
 export default class ConversionUnit {
+  static create ({ from, to }) {
+    return new ConversionUnit({ from, to })
+  }
+
  constructor ({ from, to }) {
    this.from = from
    this.to = to
