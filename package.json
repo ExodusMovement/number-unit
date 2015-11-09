@@ -1,6 +1,6 @@
 {
   "name": "number-unit",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Numbers with units.",
   "main": "lib/index.js",
   "scripts": {

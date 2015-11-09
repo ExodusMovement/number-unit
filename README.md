@@ -3,7 +3,7 @@ Number (with) Unit
 
 [![build status](https://api.travis-ci.org/jprichardson/number-unit.svg)](http://travis-ci.org/jprichardson/number-unit)
 
-A JavaScript component to handle arbitrary precision numbers with units.
+A [heavily tested](https://github.com/jprichardson/number-unit/tree/master/tests) JavaScript component to handle arbitrary precision numbers with units.
 
 
 Why?
