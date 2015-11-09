@@ -1,6 +1,5 @@
 import assert from 'assert'
 import * as Unit from './unit'
-import NumberUnit from './number-unit'
 
 export default class UnitType {
   static create (label, parent, definitions, defaultUnit) {
@@ -61,6 +60,6 @@ export default class UnitType {
   }
 
   get ZERO () {
-    return NumberUnit.create(0, this.defaultUnit)
+    return this.defaultUnit(0)
   }
 }
