@@ -47,14 +47,15 @@ Usage
 **Quick example:**
 
 ```js
+// import { UnitType } from 'number-unit' // if using ES6 (ES2015)
 var UnitType = require('number-unit').UnitType
 
 // create a UnitType first
-var bitcoin = UnitType.create('bitcoin', { satoshis: 1, bits: 1e2, BTC: 1e8 })
+var bitcoin = UnitType.create('bitcoin', { satoshis: 1, bits: 1e2, BTC: 1e8 }, 'bits')
 
 // now create a NumberUnit
 var amount1 = bitcoin.BTC(1.53)
-var amount2 = bitcoin.bits(1530000)
+var amount2 = bitcoin.bits('1530000') // notice, can accept strings as well
 
 console.log(amount1.toString()) // => 1.53 BTC
 console.log(amount2.toString()) // => 1530000 bits
@@ -62,6 +63,7 @@ console.log(amount2.toString()) // => 1530000 bits
 // compare numerical values
 console.log(amount1.equals(amount2)) // => true
 ```
+
 
 
 ### Important Concepts to Know
@@ -76,17 +78,56 @@ Now you may want to create another named `distanceUS`, modeling
 [United States customary units](https://en.wikipedia.org/wiki/United_States_customary_units). Since both
 have `distance` has a parent type, you can convert between the two. This is the value
 of parent types. As it wouldn't make sense to convert from distance to currency or something
-lie that. See: (LINK TO FIXURES)
+lie that. See for some examples: https://github.com/jprichardson/number-unit
+
+
+### UnitType
+
+#### UnitType.create
+
+**UnitType.create(label, [parentUnitType], [definitions], [defaultUnit])**
+
+Creates an instance of `UnitType` and returns it.
+
+- `label`: The unit type label.
+- `parentUnitType`: The parent unit type. Useful for converting between UnitType that have the same parent.
+- `definitions`: Actual conversions.
+- `defaultUnit`: Default unit. Used when `defaultUnit` is called.
+
+
+**[instanceof UnitType].parse(string)**
+
+Method that parses the input string and returns an instance of `NumberUnit` with
+a number value extracted from the string and a `unitName` from the string.
+
+```js
+var amount = bitcoin.parse('1.53 BTC')
+console.log(amount.toNumber()) // => 1.53
+console.log(amount.unitName) // => BTC
+```
+
+**[instanceof UnitType].ZERO**
+
+Property that creates and returns an instance of `NumberUnit` with a number value of `0` and a
+the unit being the default unit.
+
+```js
+var zero = bitcoin.ZERO
+console.log(amount.toNumber()) // => 0
+console.log(amount.unitName) // => bits
+```
 
 
 
 ### NumberUnit
 
 
+
+
 ### Unit
 
 
-### UnitType
+
 
 
 ### ConversionUnit
