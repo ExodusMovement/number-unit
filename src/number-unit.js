@@ -1,5 +1,5 @@
 import { ok, strictEqual } from 'assert'
-import Decimal from 'decimal.js'
+import Decimal from 'bignumber.js'
 import _isNumberUnit from './is-number-unit'
 // import Unit from './unit'
 

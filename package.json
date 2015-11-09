@@ -32,8 +32,8 @@
     "tape": "^4.2.2"
   },
   "dependencies": {
-    "clone": "^1.0.2",
-    "decimal.js": "^4.0.3"
+    "bignumber.js": "^2.1.0",
+    "clone": "^1.0.2"
   },
   "standard": {
     "parser": "babel-eslint",
