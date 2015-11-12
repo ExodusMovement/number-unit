@@ -95,6 +95,8 @@ Creates an instance of `UnitType` and returns it.
 - `defaultUnit`: Default unit. Used when `defaultUnit` is called.
 
 
+#### [instanceof UnitType].parse()
+
 **[instanceof UnitType].parse(string)**
 
 Method that parses the input string and returns an instance of `NumberUnit` with
@@ -105,6 +107,9 @@ var amount = bitcoin.parse('1.53 BTC')
 console.log(amount.toNumber()) // => 1.53
 console.log(amount.unitName) // => BTC
 ```
+
+
+#### [instanceof UnitType].ZERO
 
 **[instanceof UnitType].ZERO**
 
@@ -120,6 +125,22 @@ console.log(amount.unitName) // => bits
 
 
 ### NumberUnit
+
+Create instances of `NumberUnit` with the UnitType factory methods.
+
+**Note:** All methods on `NumberUnit` instances return new instances of `NumberUnit`,
+that is, NumberUnits are immutable.
+
+```js
+var amount = bitcoin.BTC(3.5)
+console.log(amount instanceof NumberUnit) // => true
+```
+
+#### [instanceof NumberUnit].abs()
+
+Returns a new instance of `NumberUnit` with the absolute value of the number.
+
+
 
 
 
