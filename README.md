@@ -83,9 +83,9 @@ lie that. See for some examples: https://github.com/jprichardson/number-unit
 
 ### UnitType
 
-#### UnitType.create
+#### UnitType.create()
 
-**UnitType.create(label, [parentUnitType], [definitions], [defaultUnit])**
+Method signature: `UnitType.create(label, [parentUnitType], [definitions], [defaultUnit])`
 
 Creates an instance of `UnitType` and returns it.
 
@@ -94,10 +94,15 @@ Creates an instance of `UnitType` and returns it.
 - `definitions`: Actual conversions.
 - `defaultUnit`: Default unit. Used when `defaultUnit` is called.
 
+```js
+var UnitType = require('number-unit').UnitType
+var bitcoin = UnitType.create('bitcoin', { satoshis: 1, bits: 1e2, BTC: 1e8 }, 'bits')
+```
 
-#### [instanceof UnitType].parse()
 
-**[instanceof UnitType].parse(string)**
+#### UnitType.prototype.parse()
+
+Method signature: `parse(string)`
 
 Method that parses the input string and returns an instance of `NumberUnit` with
 a number value extracted from the string and a `unitName` from the string.
@@ -109,9 +114,7 @@ console.log(amount.unitName) // => BTC
 ```
 
 
-#### [instanceof UnitType].ZERO
-
-**[instanceof UnitType].ZERO**
+#### UnitType.prototype.ZERO
 
 Property that creates and returns an instance of `NumberUnit` with a number value of `0` and a
 the unit being the default unit.
@@ -136,9 +139,22 @@ var amount = bitcoin.BTC(3.5)
 console.log(amount instanceof NumberUnit) // => true
 ```
 
-#### [instanceof NumberUnit].abs()
+#### NumberUnit.prototype.abs()
 
-Returns a new instance of `NumberUnit` with the absolute value of the number.
+**Signature:** `abs()`
+
+**Parameters:** (none)
+
+**Returns:** a new instance of `NumberUnit` with the absolute value of the number.
+
+**Example:**
+
+```js
+var amount = bitcoin.BTC(-3.5)
+console.log(amount.abs().toString()) // => 3.5 BTC
+```
+
+#### NumberUnit.prototype.add()
 
 
 
