@@ -42,6 +42,10 @@ export default class NumberUnit {
     return new NumberUnit(sumBase, this.baseUnit).to(this.unit)
   }
 
+  clone () {
+    return new NumberUnit(this._number, this.unit)
+  }
+
   equals (number) {
     let base = number.toBase()
     let thisBase = this.toBase()
@@ -64,10 +68,6 @@ export default class NumberUnit {
     let thisBase = this.toBase()
     let sumBase = thisBase._number.minus(base._number)
     return new NumberUnit(sumBase, this.baseUnit).to(this.unit)
-  }
-
-  clone () {
-    return new NumberUnit(this._number, this.unit)
   }
 
   inspect () {
