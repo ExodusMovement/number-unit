@@ -156,6 +156,24 @@ console.log(amount.abs().toString()) // => 3.5 BTC
 
 #### NumberUnit.prototype.add()
 
+**Signature:** `add(number)`
+
+**Parameters:**
+- `number`: Can either by of type `number` or `NumberUnit`. If `strict` mode is set
+it can only be of type `NumberUnit`.
+
+**Returns:** a new instance of `NumberUnit` that represents the sum of the two numbers.
+
+**Example:**
+
+```js
+var amount = bitcoin.BTC(-3.5)
+var sum = amount.add(bitcoin.BTC(1))
+console.log(sum.toString()) // => -2.5 BTC
+```
+
+#### NumberUnit.prototype.clone()
+
 
 
 
