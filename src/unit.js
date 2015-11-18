@@ -1,8 +1,13 @@
 import NumberUnit from './number-unit'
+import isNumberUnit from './is-number-unit'
 
 export function create (unitType, name, multiplier) {
   let numberUnitCreator = (val) => {
-    return NumberUnit.create(val, numberUnitCreator)
+    if (isNumberUnit(val)) {
+      return val.to(numberUnitCreator)
+    } else {
+      return NumberUnit.create(val, numberUnitCreator)
+    }
   }
 
   numberUnitCreator.unitName = name

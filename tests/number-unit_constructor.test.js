@@ -32,3 +32,15 @@ test('create method with string input', function (t) {
 
   t.end()
 })
+
+test.only('create method with NumberUnit input', function (t) {
+  t.plan(2)
+
+  let amount2 = bitcoin.BTC('1.53')
+  t.is(amount2.toString(), '1.53 BTC', 'toString() => 1.53 BTC')
+
+  let amount3 = bitcoin.bits(amount2)
+  t.is(amount3.toString(), '1530000 bits', 'toString() => 1530000 bits')
+
+  t.end()
+})
