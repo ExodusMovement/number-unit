@@ -139,6 +139,7 @@ var amount = bitcoin.BTC(3.5)
 console.log(amount instanceof NumberUnit) // => true
 ```
 
+
 #### NumberUnit.prototype.abs()
 
 **Signature:** `abs()`
@@ -154,6 +155,7 @@ var amount = bitcoin.BTC(-3.5)
 console.log(amount.abs().toString()) // => 3.5 BTC
 ```
 
+
 #### NumberUnit.prototype.add()
 
 **Signature:** `add(number)`
@@ -168,13 +170,99 @@ it can only be of type `NumberUnit`.
 
 ```js
 var amount = bitcoin.BTC(-3.5)
-var sum = amount.add(bitcoin.BTC(1))
+var sum = amount.add(bitcoin.bits('1000000'))
 console.log(sum.toString()) // => -2.5 BTC
 ```
 
+
 #### NumberUnit.prototype.clone()
 
+**Signature:** `clone()`
 
+**Parameters:** (none)
+
+**Returns:** New instance of `NumberUnit` that is a clone.
+
+**Example:**
+
+```js
+var amount = bitcoin.BTC(1.3)
+var amount2 = amount.clone()
+console.log(amount2.toString()) // => 1.3 BTC
+```
+
+
+#### NumberUnit.prototype.equals()
+
+**Signature:** `equals(numberUnit)`
+
+**Parameters:**
+- `numberUnit`: Another of instance of a `NumberUnit` to check equality with. Units
+do not matter. e.g. `1000 m = 1 km`.
+
+**Returns:** A `boolean`, `true` if equals.
+
+**Example:**
+
+```js
+var distance1 = distanceSI.km(1)
+var distance2 = distanceSI.m(1000)
+
+console.log(distance1.equals(distance2)) // => true
+```
+
+
+#### NumberUnit.prototype.gt()
+
+Check if one is greater than the other.
+
+**Signature:** `gt(numberUnit)`
+**Parameters:**
+- `numberUnit`: Another of instance of a `NumberUnit`.
+**Returns:** A `boolean`, `true` if it's greater than.
+**Example:**
+
+```js
+var distance1 = distanceSI.km(1.1)
+var distance2 = distanceSI.m(1000)
+
+console.log(distance1.gt(distance2)) // => true
+```
+
+
+#### NumberUnit.prototype.negate()
+
+Negate the number.
+
+**Signature:** `negate()`
+**Parameters:** (none)
+**Returns:** New instance of `NumberUnit` with the number negated.
+**Example:**
+
+```js
+var distance1 = distanceSI.km(1)
+var distance2 = distance1.negate()
+
+console.log(distance2.toString()) // => '-1 km'
+```
+
+
+#### NumberUnit.prototype.subtract()
+
+**Signature:** `negate()`
+
+**Parameters:** (none)
+
+**Returns:** New instance of `NumberUnit` with the number negated.
+
+**Example:**
+
+```js
+var distance1 = distanceSI.km(1)
+var distance2 = distance1.negate()
+
+console.log(distance2.toString()) // => '-1 km'
+```
 
 
 
