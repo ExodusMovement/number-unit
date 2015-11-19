@@ -58,6 +58,10 @@ export default class NumberUnit {
     return thisBase._number.gt(base._number)
   }
 
+  inspect () {
+    return `<NumberUnit: ${this.toString()} >`
+  }
+
   negate () {
     return new NumberUnit(this._number.neg(), this.unit, { strict: this.strict })
   }
@@ -68,10 +72,6 @@ export default class NumberUnit {
     let thisBase = this.toBase()
     let sumBase = thisBase._number.minus(base._number)
     return new NumberUnit(sumBase, this.baseUnit).to(this.unit)
-  }
-
-  inspect () {
-    return `<NumberUnit: ${this.toString()} >`
   }
 
   toBase () {
