@@ -249,19 +249,18 @@ console.log(distance2.toString()) // => '-1 km'
 
 #### NumberUnit.prototype.subtract()
 
-**Signature:** `negate()`
-
-**Parameters:** (none)
-
-**Returns:** New instance of `NumberUnit` with the number negated.
-
+**Signature:** `subtract(numberUnit)`
+**Parameters:**
+- `numberUnit`: Another of instance of a `NumberUnit`.
+**Returns:** An instance of NumberUnit that represents the subtraction of the two.
 **Example:**
 
 ```js
-var distance1 = distanceSI.km(1)
-var distance2 = distance1.negate()
+var distance1 = distanceSI.km(3)
+var distance2 = distanceSI.m(1000)
+var distance3 = distance1.subtract(distance2)
 
-console.log(distance2.toString()) // => '-1 km'
+console.log(distance3.toString()) // => '2 km'
 ```
 
 
