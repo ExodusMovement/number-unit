@@ -249,6 +249,8 @@ console.log(distance2.toString()) // => '-1 km'
 
 #### NumberUnit.prototype.subtract()
 
+Calculate the difference between two numbers.
+
 **Signature:** `subtract(numberUnit)`
 **Parameters:**
 - `numberUnit`: Another of instance of a `NumberUnit`.
@@ -263,6 +265,23 @@ var distance3 = distance1.subtract(distance2)
 console.log(distance3.toString()) // => '2 km'
 ```
 
+
+#### NumberUnit.prototype.toBase()
+
+Convert the number to the base number (unit with multiplier of `1`).
+
+**Signature:** `toBase()`
+**Parameters:** (none)
+**Returns:** An instance of NumberUnit that same number except in the base units.
+**Example:**
+
+```js
+// USD has multiplier of `1` and thus, is the 'base' unit.
+var dollar = UnitType.create('dollar', { USD: 1, cents: 1e-2 }, 'USD')
+var amount1 = dollar.cents(600)
+var amount2 = amount1.toBase()
+console.log(amount2.toString()) // => '6 USD'
+```
 
 
 
