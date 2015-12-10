@@ -284,6 +284,25 @@ console.log(amount2.toString()) // => '6 USD'
 ```
 
 
+#### NumberUnit.prototype.toDefault()
+
+Convert the number to the default unit.
+
+**Signature:** `toDefault()`
+**Parameters:** (none)
+**Returns:** An instance of NumberUnit that same number except in the default unit.
+**Example:**
+
+```js
+// 'bits' is defined as the default unit.
+var bitcoin = UnitType.create('bitcoin', { satoshis: 1, bits: 1e2, BTC: 1e8 }, 'bits')
+var amount1 = bitcoin.BTC(1.5)
+var amount2 = amount1.toDefault() // convert to 'bits'
+console.log(amount2.toString()) // => '1500000 bits'
+```
+
+
+
 
 ### Unit
 
