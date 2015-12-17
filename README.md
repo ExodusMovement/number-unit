@@ -217,9 +217,13 @@ console.log(distance1.equals(distance2)) // => true
 Check if one is greater than the other.
 
 **Signature:** `gt(numberUnit)`
+
 **Parameters:**
+
 - `numberUnit`: Another of instance of a `NumberUnit`.
+
 **Returns:** A `boolean`, `true` if it's greater than.
+
 **Example:**
 
 ```js
@@ -235,8 +239,11 @@ console.log(distance1.gt(distance2)) // => true
 Negate the number.
 
 **Signature:** `negate()`
+
 **Parameters:** (none)
+
 **Returns:** New instance of `NumberUnit` with the number negated.
+
 **Example:**
 
 ```js
@@ -252,9 +259,13 @@ console.log(distance2.toString()) // => '-1 km'
 Calculate the difference between two numbers.
 
 **Signature:** `subtract(numberUnit)`
+
 **Parameters:**
+
 - `numberUnit`: Another of instance of a `NumberUnit`.
+
 **Returns:** An instance of NumberUnit that represents the subtraction of the two.
+
 **Example:**
 
 ```js
@@ -271,8 +282,11 @@ console.log(distance3.toString()) // => '2 km'
 Convert the number to the base number (unit with multiplier of `1`).
 
 **Signature:** `toBase()`
+
 **Parameters:** (none)
+
 **Returns:** An instance of NumberUnit that same number except in the base units.
+
 **Example:**
 
 ```js
@@ -289,8 +303,11 @@ console.log(amount2.toString()) // => '6 USD'
 Convert the number to the default unit.
 
 **Signature:** `toDefault()`
+
 **Parameters:** (none)
+
 **Returns:** An instance of NumberUnit that same number except in the default unit.
+
 **Example:**
 
 ```js
@@ -300,6 +317,8 @@ var amount1 = bitcoin.BTC(1.5)
 var amount2 = amount1.toDefault() // convert to 'bits'
 console.log(amount2.toString()) // => '1500000 bits'
 ```
+
+
 
 
 
