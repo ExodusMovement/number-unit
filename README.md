@@ -233,6 +233,27 @@ var distance2 = distanceSI.m(1000)
 console.log(distance1.gt(distance2)) // => true
 ```
 
+#### NumberUnit.prototype.lt()
+
+Check if one number is less than the other.
+
+**Signature:** `lt(numberUnit)`
+
+**Parameters:**
+
+- `numberUnit`: Another of instance of a `NumberUnit`.
+
+**Returns:** A `boolean`, `true` if it's less than.
+
+**Example:**
+
+```js
+var distance1 = distanceSI.km(1.1)
+var distance2 = distanceSI.m(1000)
+
+console.log(distance1.lt(distance2)) // => false
+```
+
 
 #### NumberUnit.prototype.negate()
 

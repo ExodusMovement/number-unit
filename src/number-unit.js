@@ -62,6 +62,12 @@ export default class NumberUnit {
     return `<NumberUnit: ${this.toString()} >`
   }
 
+  lt (number) {
+    let base = number.toBase()
+    let thisBase = this.toBase()
+    return thisBase._number.lt(base._number)
+  }
+
   negate () {
     return new NumberUnit(this._number.neg(), this.unit, { strict: this.strict })
   }
