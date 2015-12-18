@@ -1,3 +1,7 @@
+0.7.0 / 2015-12-18
+------------------
+- added `lt()` for less than comparisons
+
 0.6.1 / 2015-11-18
 ------------------
 - added ability for factory unit creator functions to take as input a NumberUnit
