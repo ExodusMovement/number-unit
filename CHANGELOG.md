@@ -1,3 +1,8 @@
+0.8.0 / 2015-12-21
+------------------
+- added `lte()`
+- added `gte()`
+
 0.7.0 / 2015-12-18
 ------------------
 - added `lt()` for less than comparisons

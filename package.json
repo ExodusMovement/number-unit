@@ -1,6 +1,6 @@
 {
   "name": "number-unit",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Numbers with units.",
   "jsnext:main": "src/index.js",
   "main": "lib/index.js",
