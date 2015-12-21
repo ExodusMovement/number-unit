@@ -2,6 +2,7 @@
   "name": "number-unit",
   "version": "0.7.0",
   "description": "Numbers with units.",
+  "jsnext:main": "src/index.js",
   "main": "lib/index.js",
   "scripts": {
     "build": "babel --stage 0 src --out-dir lib",
