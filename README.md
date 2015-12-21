@@ -214,7 +214,7 @@ console.log(distance1.equals(distance2)) // => true
 
 #### NumberUnit.prototype.gt()
 
-Check if one is greater than the other.
+Check if number is greater than the other.
 
 **Signature:** `gt(numberUnit)`
 
@@ -232,6 +232,28 @@ var distance2 = distanceSI.m(1000)
 
 console.log(distance1.gt(distance2)) // => true
 ```
+
+#### NumberUnit.prototype.gte()
+
+Check if number is greater than or equal than the other.
+
+**Signature:** `gte(numberUnit)`
+
+**Parameters:**
+
+- `numberUnit`: Another of instance of a `NumberUnit`.
+
+**Returns:** A `boolean`, `true` if it's greater than or equal.
+
+**Example:**
+
+```js
+var distance1 = distanceSI.km(1.1)
+var distance2 = distanceSI.m(1000)
+
+console.log(distance1.gte(distance2)) // => true
+```
+
 
 #### NumberUnit.prototype.lt()
 

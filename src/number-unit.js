@@ -58,6 +58,12 @@ export default class NumberUnit {
     return thisBase._number.gt(base._number)
   }
 
+  gte (number) {
+    let base = number.toBase()
+    let thisBase = this.toBase()
+    return thisBase._number.gte(base._number)
+  }
+
   inspect () {
     return `<NumberUnit: ${this.toString()} >`
   }
