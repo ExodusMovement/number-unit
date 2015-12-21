@@ -277,6 +277,28 @@ console.log(distance1.lt(distance2)) // => false
 ```
 
 
+#### NumberUnit.prototype.lte()
+
+Check if number is less than or equal than the other.
+
+**Signature:** `lte(numberUnit)`
+
+**Parameters:**
+
+- `numberUnit`: Another of instance of a `NumberUnit`.
+
+**Returns:** A `boolean`, `true` if it's less than or equal.
+
+**Example:**
+
+```js
+var distance1 = distanceSI.km(1.1)
+var distance2 = distanceSI.m(1000)
+
+console.log(distance1.lte(distance2)) // => false
+```
+
+
 #### NumberUnit.prototype.negate()
 
 Negate the number.
