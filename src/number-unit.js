@@ -159,6 +159,10 @@ export default class NumberUnit {
     }
   }
 
+  valueOf () {
+    return this.toNumber()
+  }
+
   get isNegative () {
     return this._number.isNegative()
   }
