@@ -2,15 +2,21 @@
   "name": "number-unit",
   "version": "0.8.0",
   "description": "Numbers with units.",
-  "jsnext:main": "src/index.js",
-  "main": "lib/index.js",
+  "jsnext:main": "./src/index.js",
+  "main": "./lib/index.js",
+  "files": [
+    "lib",
+    "src"
+  ],
   "scripts": {
     "build": "babel --stage 0 src --out-dir lib",
-    "test": "standard && npm run build && find ./tests -name *.test.js -exec node --require ./tests/_babel.js {} \\; | tap-spec"
+    "lint": "standard",
+    "test": "npm run lint && npm run unit",
+    "unit": "npm run build && find ./tests -name *.test.js -exec node --require ./tests/_babel.js {} \\; | tap-spec"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jprichardson/number-unit.git"
+    "url": "git+https://github.com/exodusmovement/number-unit.git"
   },
   "keywords": [
     "number",
@@ -22,9 +28,9 @@
   "author": "JP Richardson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jprichardson/number-unit/issues"
+    "url": "https://github.com/exodusmovement/number-unit/issues"
   },
-  "homepage": "https://github.com/jprichardson/number-unit#readme",
+  "homepage": "https://github.com/exodusmovement/number-unit#readme",
   "devDependencies": {
     "babel": "5.x",
     "babel-eslint": "^4.1.5",

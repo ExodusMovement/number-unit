@@ -1,7 +1,11 @@
 Number (with) Unit
 ==================
 
-[![build status](https://api.travis-ci.org/jprichardson/number-unit.svg)](http://travis-ci.org/jprichardson/number-unit)
+[![NPM Package](https://img.shields.io/npm/v/secp256k1.svg?style=flat-square)](https://www.npmjs.org/package/secp256k1)
+[![Build Status](https://img.shields.io/travis/ExodusMovement/number-unit.svg?branch=master&style=flat-square)](https://travis-ci.org/ExodusMovement/number-unit)
+[![Dependency status](https://img.shields.io/david/ExodusMovement/number-unit.svg?style=flat-square)](https://david-dm.org/ExodusMovement/number-unit#info=dependencies)
+
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
 A [heavily tested](https://github.com/jprichardson/number-unit/tree/master/tests) JavaScript component to handle arbitrary precision numbers with units.
 
