@@ -42,6 +42,12 @@ export default class NumberUnit {
     return new NumberUnit(sumBase, this.baseUnit).to(this.unit)
   }
 
+  clampLowerZero () {
+    const zero = new NumberUnit(0, this.unit)
+    if (this.gte(zero)) return this
+    else return zero
+  }
+
   clone () {
     return new NumberUnit(this._number, this.unit)
   }

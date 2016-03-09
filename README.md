@@ -178,6 +178,24 @@ console.log(sum.toString()) // => -2.5 BTC
 ```
 
 
+#### NumberUnit.prototype.clampLowerZero()
+
+If the value is less than zero, return zero.
+
+**Signature:** `clampLowerZero()`
+
+**Parameters:** (none)
+
+**Returns:** An instance of NumberUnit that is either itself or zero.
+
+**Example:**
+
+```js
+console.log(bitcoin.BTC(1.53).clampLowerZero().toString()) // => 1.53 BTC
+console.log(bitcoin.BTC(-1.53).clampLowerZero().toString()) // => 0 BTC
+```
+
+
 #### NumberUnit.prototype.clone()
 
 **Signature:** `clone()`
