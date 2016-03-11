@@ -254,6 +254,7 @@ var distance2 = distanceSI.m(1000)
 console.log(distance1.gt(distance2)) // => true
 ```
 
+
 #### NumberUnit.prototype.gte()
 
 Check if number is greater than or equal than the other.
@@ -273,6 +274,24 @@ var distance1 = distanceSI.km(1.1)
 var distance2 = distanceSI.m(1000)
 
 console.log(distance1.gte(distance2)) // => true
+```
+
+
+#### NumberUnit.prototype.isZero()
+
+Returns `true` or `false` depending upon whether the number is `0`.
+
+**Signature:** `isZero()`
+
+**Parameters:** (none)
+
+**Returns:**  A `boolean` depending upon whether the number is `0`.
+
+**Example:**
+
+```js
+console.log(bitcoin.BTC(0).isZero()) // => true
+console.log(bitcoin.BTC(-1).isZero()) // => false
 ```
 
 

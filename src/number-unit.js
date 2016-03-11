@@ -74,6 +74,10 @@ export default class NumberUnit {
     return `<NumberUnit: ${this.toString()} >`
   }
 
+  isZero () {
+    return this.toNumber() === 0
+  }
+
   lt (number) {
     let base = number.toBase()
     let thisBase = this.toBase()
