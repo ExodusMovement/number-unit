@@ -116,6 +116,7 @@ export default class NumberUnit {
     return this.to(this.defaultUnit)
   }
 
+  // with 'conversionUnit' usage is deprecated
   to (unit, conversionUnit) {
     // e.g. 'bits'
     if (typeof unit === 'string') {
