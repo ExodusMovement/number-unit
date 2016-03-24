@@ -446,6 +446,25 @@ console.log(amount2.toString()) // => '1500000 bits'
 console.log(amount3.toString()) // => '1500000 bits'
 ```
 
+#### NumberUnit.prototype.toNumber()
+
+Convert a `NumberUnit` to a `number`.
+
+**Signature:** `toNumber()`
+
+**Parameters:** (none)
+
+**Returns:** A `number` representing the numeric value in the `NumberUnit`
+
+**Example:**
+
+```js
+// 'bits' is defined as the default unit.
+var bitcoin = UnitType.create('bitcoin', { satoshis: 1, bits: 1e2, BTC: 1e8 }, 'bits')
+var amount1 = bitcoin.BTC(1.5)
+console.log(amount1.toNumber()) = // => 1.5
+```
+
 
 
 ### Unit
