@@ -466,6 +466,27 @@ console.log(amount1.toNumber()) = // => 1.5
 ```
 
 
+#### NumberUnit.prototype.toString()
+
+Convert a `NumberUnit` to a a `string`.
+
+**Signature:** `toString([options])`
+
+**Parameters:** `options`, type of `object`. Optional.
+  - `unit`: `boolean`, defaults to `true`. If `true`, include the unit string.
+
+**Returns:** A `string` representing the number and optionally the unit.
+
+**Example:**
+
+```js
+// 'bits' is defined as the default unit.
+var bitcoin = UnitType.create('bitcoin', { satoshis: 1, bits: 1e2, BTC: 1e8 }, 'bits')
+var amount1 = bitcoin.BTC(1.5)
+console.log(amount1.toString()) = // => 1.5 BTC
+console.log(amount1.toString({ unit: false })) = // => 1.5
+```
+
 
 ### Unit
 

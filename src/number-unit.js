@@ -162,6 +162,7 @@ export default class NumberUnit {
     return this._number.toNumber()
   }
 
+  // TODO: `format` is undocumented, consider if passing `this._number` is correct. Probably should just pass `this`
   toString ({ unit = true, format = undefined } = {}) {
     if (!format) {
       return this._number.toString() + (unit ? ' ' + this.unitName : '')
