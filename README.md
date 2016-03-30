@@ -488,6 +488,25 @@ console.log(amount1.toString({ unit: false })) = // => 1.5
 ```
 
 
+#### NumberUnit.prototype.isNegative
+
+`boolean` property if number is negative.
+
+**Signature:** `isNegative`
+
+**Returns:** A `boolean`, `true` if the number is negative.
+
+**Example:**
+
+```js
+// 'bits' is defined as the default unit.
+var bitcoin = UnitType.create('bitcoin', { satoshis: 1, bits: 1e2, BTC: 1e8 }, 'bits')
+var amount1 = bitcoin.BTC(-1.5)
+console.log(amount1.isNegative) // => true
+```
+
+
+
 ### Unit
 
 
