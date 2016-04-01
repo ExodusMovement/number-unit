@@ -34,7 +34,7 @@ From https://en.wikipedia.org/wiki/Gimli_Glider:
 
 ---
 
-If you're writing software that **handles people's money**, you can't afford to be wrong. **That's why
+If you're writing software that **handles people's money** (http://www.exodus.io/), you can't afford to be wrong. **That's why
 this library was built.**
 
 
