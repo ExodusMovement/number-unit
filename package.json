@@ -1,36 +1,15 @@
 {
   "name": "number-unit",
-  "version": "0.10.0",
   "description": "Numbers with units.",
-  "jsnext:main": "./src/index.js",
-  "main": "./lib/index.js",
-  "files": [
-    "lib",
-    "src"
-  ],
-  "scripts": {
-    "build": "babel --stage 0 src --out-dir lib",
-    "lint": "standard",
-    "test": "npm run lint && npm run unit",
-    "unit": "npm run build && find ./tests -name *.test.js -exec node --require ./tests/_babel.js {} \\; | tap-spec"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/exodusmovement/number-unit.git"
-  },
-  "keywords": [
-    "number",
-    "unit",
-    "decimal",
-    "big",
-    "arbitrary"
-  ],
+  "version": "0.10.0",
   "author": "JP Richardson",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/exodusmovement/number-unit/issues"
   },
-  "homepage": "https://github.com/exodusmovement/number-unit#readme",
+  "dependencies": {
+    "bignumber.js": "^2.1.0",
+    "clone": "^1.0.2"
+  },
   "devDependencies": {
     "babel": "5.x",
     "babel-eslint": "^4.1.5",
@@ -38,9 +17,30 @@
     "tap-spec": "^4.1.0",
     "tape": "^4.2.2"
   },
-  "dependencies": {
-    "bignumber.js": "^2.1.0",
-    "clone": "^1.0.2"
+  "files": [
+    "lib",
+    "src"
+  ],
+  "homepage": "https://github.com/exodusmovement/number-unit#readme",
+  "jsnext:main": "./src/index.js",
+  "keywords": [
+    "arbitrary",
+    "big",
+    "decimal",
+    "number",
+    "unit"
+  ],
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/exodusmovement/number-unit.git"
+  },
+  "scripts": {
+    "build": "babel --stage 0 src --out-dir lib",
+    "lint": "standard",
+    "test": "npm run lint && npm run unit",
+    "unit": "npm run build && find ./tests -name *.test.js -exec node --require ./tests/_babel.js {} \\; | tap-spec"
   },
   "standard": {
     "parser": "babel-eslint",
