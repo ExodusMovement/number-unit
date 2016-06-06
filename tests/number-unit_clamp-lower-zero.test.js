@@ -1,4 +1,4 @@
-import test from 'tape'
+import test from 'tape-catch'
 import { bitcoin } from './_fixtures'
 
 test('clamp at zero', function (t) {

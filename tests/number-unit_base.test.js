@@ -1,4 +1,4 @@
-import test from 'tape'
+import test from 'tape-catch'
 import { bitcoin, distanceSI } from './_fixtures'
 
 test('toBase() should convert any unit to base unit', function (t) {

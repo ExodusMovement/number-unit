@@ -1,4 +1,4 @@
-import test from 'tape'
+import test from 'tape-catch'
 import { bitcoin } from './_fixtures'
 
 test('abs() should return absolute value', function (t) {

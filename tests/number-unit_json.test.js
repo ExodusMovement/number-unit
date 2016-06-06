@@ -1,4 +1,4 @@
-import test from 'tape'
+import test from 'tape-catch'
 import { bitcoin } from './_fixtures'
 
 test('JSON stringify should not throw an error', function (t) {

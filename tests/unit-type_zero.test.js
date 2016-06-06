@@ -1,4 +1,4 @@
-import test from 'tape'
+import test from 'tape-catch'
 import { bitcoin, dollar } from './_fixtures'
 
 test('ZERO should return a number-unit with value of 0 in default unit', function (t) {

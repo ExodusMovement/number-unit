@@ -1,4 +1,4 @@
-import test from 'tape'
+import test from 'tape-catch'
 import { bitcoin, dollar, distanceSI } from './_fixtures'
 
 test('toDefault() should convert to default unit', function (t) {

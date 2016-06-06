@@ -1,4 +1,4 @@
-import test from 'tape'
+import test from 'tape-catch'
 import { UnitType } from '..'
 
 test.skip('when create() parent / abstract unit-type', function (t) {

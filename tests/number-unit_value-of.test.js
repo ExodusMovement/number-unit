@@ -1,4 +1,4 @@
-import test from 'tape'
+import test from 'tape-catch'
 import { bitcoin } from './_fixtures'
 
 test('valueOf() should return primitive value', function (t) {

@@ -1,4 +1,4 @@
-import test from 'tape'
+import test from 'tape-catch'
 import { bitcoin, distanceSI } from './_fixtures'
 
 test('equals() should return true if any number with unit is equivalent', function (t) {

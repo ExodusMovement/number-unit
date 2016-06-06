@@ -1,4 +1,4 @@
-import test from 'tape'
+import test from 'tape-catch'
 import { bitcoin, distanceSI } from './_fixtures'
 
 test('parse() should return a NumberUnit from the string representation', function (t) {

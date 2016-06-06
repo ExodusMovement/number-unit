@@ -1,4 +1,4 @@
-import test from 'tape'
+import test from 'tape-catch'
 import { ConversionUnit, conversion } from '../'
 import { bitcoin, dollar } from './_fixtures'
 
