@@ -4,7 +4,7 @@ import _ConversionUnit from './conversion-unit'
 import _conversion from './conversion'
 import _UnitType from './unit-type'
 
-export const NumberUnit = _NumberUnit
+export default _NumberUnit
 export const isNumberUnit = _isNumberUnit
 export const ConversionUnit = _ConversionUnit
 export const conversion = _conversion
