@@ -43,7 +43,9 @@
   "scripts": {
     "build": "babel src --out-dir lib",
     "lint": "standard",
-    "test": "npm run build && npm run lint && npm run unit",
+    "prepublish": "npm run test",
+    "pretest": "npm run build",
+    "test": "npm run lint && npm run unit",
     "unit": "find ./tests -name *.test.js -exec tape --require babel-register {} \\; | tap-spec"
   },
   "standard": {

@@ -172,7 +172,7 @@ export default class NumberUnit {
   }
 
   valueOf () {
-    return this.toNumber()
+    return this.toDefault().toNumber()
   }
 
   get isNegative () {
