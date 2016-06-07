@@ -1,3 +1,32 @@
+0.11.0 / 2016-06-06
+-------------------
+### Added
+- Officially added support for Node v0.10, Node v0.12
+
+### Breaking
+- Upgraded to Babel 6, this:
+
+```js
+var NumberUnit = require('number-unit')
+```
+
+becomes:
+
+```js
+var NumberUnit = require('number-unit').default
+```
+
+- `valueOf()` calls `toDefault()` before converting to a `Number`. This normalizes the types so that:
+
+```js
+let b2 = dollar.USD(2)
+let b3 = dollar.cents(100)
+
+assert(b2 > b3, '2 USD > 100 cents')
+```
+
+
+
 0.10.0 / 2016-03-11
 -------------------
 - added `isZero()`

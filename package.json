@@ -1,7 +1,7 @@
 {
   "name": "number-unit",
   "description": "Numbers with units.",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "author": "JP Richardson",
   "bugs": {
     "url": "https://github.com/exodusmovement/number-unit/issues"
