@@ -176,6 +176,10 @@ export default class NumberUnit {
     }
   }
 
+  toHex () {
+    return this._number.toString(16)
+  }
+
   valueOf () {
     return this.toDefault().toNumber()
   }
