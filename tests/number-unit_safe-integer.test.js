@@ -37,29 +37,20 @@ test('should not error out on significant figures', function (t) {
   let b4 = null
   let error4 = false
   try {
-    b4 = bitcoin.BTC(-Number.MAX_SAFE_INTEGER)
+    b4 = bitcoin.BTC(Number.MIN_SAFE_INTEGER)
   } catch (e) {
     error4 = true
   }
-  t.ok(error4 === false && isNumberUnit(b4), 'Creation of NumberUnit with number -Number.MAX_SAFE_INTEGER was successful')
+  t.ok(error4 === false && isNumberUnit(b4), 'Creation of NumberUnit with number Number.MIN_SAFE_INTEGER was successful')
 
   let b5 = null
   let error5 = false
   try {
-    b5 = bitcoin.BTC(-(Number.MAX_SAFE_INTEGER + 1))
+    b5 = bitcoin.BTC(Number.MIN_SAFE_INTEGER - 1)
   } catch (e) {
     error5 = true
   }
-  t.ok(error5 === true && !isNumberUnit(b5), 'Creation of NumberUnit with number -(Number.MAX_SAFE_INTEGER + 1) should throw an error')
-
-  let b6 = null
-  let error6 = false
-  try {
-    b6 = bitcoin.BTC(-Number.MAX_SAFE_INTEGER + '.1')
-  } catch (e) {
-    error6 = true
-  }
-  t.ok(error6 === true && !isNumberUnit(b6), 'Creation of NumberUnit with number -(Number.MAX_SAFE_INTEGER + .1) should throw an error')
+  t.ok(error5 === true && !isNumberUnit(b5), 'Creation of NumberUnit with number (Number.MIN_SAFE_INTEGER - 1) should throw an error')
 
   t.end()
 })
