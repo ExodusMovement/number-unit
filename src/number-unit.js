@@ -15,7 +15,12 @@ export default class NumberUnit {
 
   constructor (number, unit, { strict } = {}) {
     // assert(unit instanceof Unit, 'Must specify type of Unit.')
-    this._number = new Decimal(number)
+    this._number = new Decimal(+('' + number) === 0 ? number : ('' + number))
+    let maxSafeInteger = new Decimal(Number.MAX_SAFE_INTEGER)
+    let minSafeInteger = new Decimal(Number.MIN_SAFE_INTEGER)
+    if (this._number.greaterThan(maxSafeInteger) || this._number.lessThan(minSafeInteger)) {
+      throw new Error('Number cannot be larger than ' + Number.MAX_SAFE_INTEGER + ' or less than ' + Number.MIN_SAFE_INTEGER)
+    }
     this.unit = unit
 
     // TODO: make these getters
