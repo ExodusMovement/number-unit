@@ -15,7 +15,7 @@ export default class NumberUnit {
 
   constructor (number, unit, { strict } = {}) {
     // assert(unit instanceof Unit, 'Must specify type of Unit.')
-    this._number = new Decimal(number)
+    this._number = new Decimal(+('' + number) === 0 ? number : ('' + number))
     this.unit = unit
 
     // TODO: make these getters
