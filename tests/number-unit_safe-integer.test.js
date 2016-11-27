@@ -7,10 +7,13 @@ test('should not error out on significant figures', function (t) {
     return x !== undefined && x !== null && x.constructor && x.constructor.name === NumberUnit.name
   }
 
+  const maxSafeInteger = Number.MAX_SAFE_INTEGER !== undefined ? Number.MAX_SAFE_INTEGER : 9007199254740991
+  const minSafeInteger = Number.MIN_SAFE_INTEGER !== undefined ? Number.MIN_SAFE_INTEGER : -9007199254740991
+
   let b1 = null
   let error1 = false
   try {
-    b1 = bitcoin.BTC(Number.MAX_SAFE_INTEGER)
+    b1 = bitcoin.BTC(maxSafeInteger)
   } catch (e) {
     error1 = true
   }
@@ -19,7 +22,7 @@ test('should not error out on significant figures', function (t) {
   let b2 = null
   let error2 = false
   try {
-    b2 = bitcoin.BTC(Number.MAX_SAFE_INTEGER + 1)
+    b2 = bitcoin.BTC(maxSafeInteger + 1)
   } catch (e) {
     error2 = true
   }
@@ -28,7 +31,7 @@ test('should not error out on significant figures', function (t) {
   let b3 = null
   let error3 = false
   try {
-    b3 = bitcoin.BTC(Number.MAX_SAFE_INTEGER + '.1')
+    b3 = bitcoin.BTC(maxSafeInteger + '.1')
   } catch (e) {
     error3 = true
   }
@@ -37,7 +40,7 @@ test('should not error out on significant figures', function (t) {
   let b4 = null
   let error4 = false
   try {
-    b4 = bitcoin.BTC(Number.MIN_SAFE_INTEGER)
+    b4 = bitcoin.BTC(minSafeInteger)
   } catch (e) {
     error4 = true
   }
@@ -46,7 +49,7 @@ test('should not error out on significant figures', function (t) {
   let b5 = null
   let error5 = false
   try {
-    b5 = bitcoin.BTC(Number.MIN_SAFE_INTEGER - 1)
+    b5 = bitcoin.BTC(minSafeInteger - 1)
   } catch (e) {
     error5 = true
   }
