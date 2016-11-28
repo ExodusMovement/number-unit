@@ -1,3 +1,11 @@
+Unreleased
+-----------
+
+### Fixed
+
+- throw if an error is less than `MIN_SAFE_INTEGER` or greater than `MAX_SAFE_INTEGER`. [#11], [#15]
+
+
 0.11.0 / 2016-06-06
 -------------------
 ### Added
