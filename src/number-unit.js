@@ -1,6 +1,7 @@
 import { ok, strictEqual } from 'assert'
 import Decimal from 'bignumber.js'
 import _isNumberUnit from './is-number-unit'
+import ieee754 from 'ieee754'
 // import Unit from './unit'
 
 export default class NumberUnit {
@@ -176,6 +177,12 @@ export default class NumberUnit {
     }
   }
 
+  toBuffer () {
+    let buf = new Buffer(8)
+    ieee754.write(buf, this._number, 0, false, 52, 8)
+    return buf
+  }
+
   toBinary () {
     let string = this._number.toString() // eg: -3.2
     let isNegative = this._number.isNegative()
@@ -271,6 +278,11 @@ export default class NumberUnit {
   }
 
   toHex () {
+    if (!(this._number.eq(0) && this._number.isNegative())) {
+      return this.toBuffer().toString('hex')
+    }
+
+    // since ieee754 (at least version 1.1.8) has a bug when number is -0, it assumes positive, use my own method to calculate the binary
     let ieee754Binary = this.toBinary()
 
     let ieee754Hex = ''
