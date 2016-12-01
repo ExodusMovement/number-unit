@@ -176,8 +176,114 @@ export default class NumberUnit {
     }
   }
 
+  toBinary () {
+    let string = this._number.toString() // eg: -3.2
+    let isNegative = this._number.isNegative()
+
+    let bias = 1023
+    let exponentBitsLength = 11
+    let exponentBits = ''
+    let mantissaBitsLength = 52
+    let mantissaBits = ''
+    let ieee754Binary = ''
+
+    // remove negative sign
+    if (string.substr(0, 1) === '-') {
+      string = string.substr(1)
+    }
+
+    // BigNumber's toString possibly return NaN or Infinity
+    if (['NaN', 'Infinity'].indexOf(string) !== -1) {
+      exponentBits = ''
+      for (let i = 0; i < exponentBitsLength; i++) {
+        exponentBits += '1'
+      }
+      mantissaBits = ''
+      for (let i = 0; i < mantissaBitsLength; i++) {
+        mantissaBits += string === 'NaN' ? '1' : '0'
+      }
+
+      ieee754Binary = (isNegative ? '1' : '0') + exponentBits + mantissaBits
+      return ieee754Binary
+    }
+
+    let dotIndex = string.indexOf('.')
+    let binaryString = ''
+    if (dotIndex === -1) {
+      binaryString = (+string).toString(2)
+    } else {
+      let left = (+string.substr(0, dotIndex)).toString(2)
+      let right = ''
+      let numerator = +string.substr(dotIndex + 1)
+      let tens = Math.pow(10, ('' + numerator).length)
+      for (let i = 0; i < mantissaBitsLength; i++) {
+        numerator *= 2
+        if (numerator > tens) {
+          numerator -= tens
+          right += '1'
+        } else {
+          right += '0'
+        }
+        tens = Math.pow(10, ('' + numerator).length)
+      }
+      binaryString = left + '.' + right
+    }
+
+    let firstOneIndex = binaryString.indexOf('1')
+
+    if (firstOneIndex === -1) {
+      exponentBits = ''
+      for (let i = 0; i < exponentBitsLength; i++) {
+        exponentBits += '0'
+      }
+      mantissaBits = ''
+      for (let i = 0; i < mantissaBitsLength; i++) {
+        mantissaBits += '0'
+      }
+
+      ieee754Binary = (isNegative ? '1' : '0') + exponentBits + mantissaBits
+      return ieee754Binary
+    }
+
+    let floatingPointPosition = binaryString.indexOf('.') === -1 ? binaryString.length : binaryString.indexOf('.')
+    let exponent = floatingPointPosition - firstOneIndex - (floatingPointPosition > firstOneIndex ? 1 : 0)
+
+    exponentBits = (+(+bias + +exponent)).toString(2)
+    while (exponentBits.length < exponentBitsLength) {
+      exponentBits = '0' + exponentBits
+    }
+    exponentBits = exponentBits.substr(0, exponentBitsLength)
+
+    for (let i = firstOneIndex + 1; i < binaryString.length; i++) {
+      let bit = binaryString.substr(i, 1)
+      if (bit !== '1' && bit !== '0') {
+        continue
+      }
+      mantissaBits += bit
+    }
+    while (mantissaBits.length < mantissaBitsLength) {
+      mantissaBits += '0'
+    }
+    mantissaBits = mantissaBits.substr(0, mantissaBitsLength)
+
+    ieee754Binary = (isNegative ? '1' : '0') + exponentBits + mantissaBits
+    return ieee754Binary
+  }
+
   toHex () {
-    return this._number.toString(16)
+    let ieee754Binary = this.toBinary()
+
+    let ieee754Hex = ''
+    for (let i = 0; i < (ieee754Binary.length / 16); i++) {
+      let chunk = ieee754Binary.substr(i * 16, 16)
+      let hex = parseInt(chunk, 2).toString(16)
+      while (hex.length < 4) {
+        hex = '0' + hex
+      }
+      ieee754Hex += hex
+    }
+
+    return ieee754Hex
   }
 
   valueOf () {
