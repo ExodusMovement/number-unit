@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "bignumber.js": "^2.3.0",
-    "clone": "^1.0.2"
+    "clone": "^1.0.2",
+    "ieee754": "^1.1.8"
   },
   "devDependencies": {
     "babel-cli": "^6.9.0",

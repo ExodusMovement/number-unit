@@ -1,6 +1,7 @@
 import { ok, strictEqual } from 'assert'
 import Decimal from 'bignumber.js'
 import _isNumberUnit from './is-number-unit'
+import ieee754 from 'ieee754'
 // import Unit from './unit'
 
 export default class NumberUnit {
@@ -16,6 +17,11 @@ export default class NumberUnit {
   constructor (number, unit, { strict } = {}) {
     // assert(unit instanceof Unit, 'Must specify type of Unit.')
     this._number = new Decimal(number)
+    let maxSafeInteger = new Decimal(Number.MAX_SAFE_INTEGER !== undefined ? Number.MAX_SAFE_INTEGER : 9007199254740991)
+    let minSafeInteger = new Decimal(Number.MIN_SAFE_INTEGER !== undefined ? Number.MIN_SAFE_INTEGER : -9007199254740991)
+    if (this._number.greaterThan(maxSafeInteger) || this._number.lessThan(minSafeInteger)) {
+      throw new Error('Number cannot be larger than ' + Number.MAX_SAFE_INTEGER + ' or less than ' + Number.MIN_SAFE_INTEGER)
+    }
     this.unit = unit
 
     // TODO: make these getters
@@ -169,6 +175,16 @@ export default class NumberUnit {
     } else {
       return format(this._number, this.unit)
     }
+  }
+
+  toBuffer () {
+    let buf = new Buffer(8)
+    ieee754.write(buf, this._number.toNumber(), 0, false, 52, 8)
+    return buf
+  }
+
+  toHex () {
+    return this.toBuffer().toString('hex')
   }
 
   valueOf () {
